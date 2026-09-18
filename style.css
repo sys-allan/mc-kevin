@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 :root {
   
   --bg-darker: #050505;    
@@ -256,6 +258,7 @@ a {
 
 .hero-content {
   position: relative;
+  top: 43px;
   z-index: 10;
   width: var(--content-width);
   max-width: 900px;
@@ -1672,7 +1675,7 @@ a {
 
 .footer-subcopy {
   position: relative;
-  right: 33px;
+  right: 245px;
   font-family: var(--font-sans);
   font-size: 0.7rem;
   color: var(--text-disabled);

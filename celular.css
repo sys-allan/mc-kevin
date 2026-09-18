@@ -11,6 +11,7 @@
   .spotlight-frame {
     height: 420px;
   }
+  
 }
 
 /* Medium Desktop / Tablet Landscape */
@@ -220,7 +221,7 @@
   }
   
   .timeline-dot {
-    left: 2rem !important;
+    left: 1rem !important;
     transform: translateX(-50%) !important;
     top: 0.5rem;
   }
@@ -249,6 +250,10 @@
   
   .spotlight-caption {
     font-size: 1.1rem;
+  }
+
+  .giant-quote {
+    font-size: clamp(0rem, 7.5vw, 4.2rem);
   }
 }
 
