@@ -1,7 +1,8 @@
 # 🎤 MC Kevin – O Menino que Virou Lenda
 
 <p align="center">
-  <img src="https://via.placeholder.com/1200x400/1a1a2e/ffffff?text=KEVIN+N.+BUENO" alt="Banner MC Kevin" width="100%">
+<img width="1345" height="635" alt="image" src="https://github.com/user-attachments/assets/16cefafe-2f74-42c3-b6ed-38c82d2bcc2a" />
+
 </p>
 
 <p align="center">
@@ -16,7 +17,7 @@
 
 ---
 
-## 📖 Sobre o Projeto
+ 📖 Sobre o Projeto
 
 Este repositório contém o código-fonte de um site tributo dedicado ao **MC Kevin** (Kevin Nascimento Bueno), um dos maiores nomes do funk paulista. O projeto celebra sua trajetória, suas músicas e seu impacto cultural, mantendo viva a memória do artista que encantou a quebrada.
 
@@ -26,7 +27,7 @@ Este repositório contém o código-fonte de um site tributo dedicado ao **MC Ke
 
 ---
 
-## 📊 Estatísticas
+📊 Estatísticas
 
 | Ícone | Número | Descrição |
 |-------|--------|-----------|
@@ -35,7 +36,7 @@ Este repositório contém o código-fonte de um site tributo dedicado ao **MC Ke
 
 ---
 
-## 🎵 Discografia & Hits
+🎵 Discografia & Hits
 
 | Capa | Artista | Música | Ano |
 |------|---------|--------|-----|
@@ -45,9 +46,9 @@ Este repositório contém o código-fonte de um site tributo dedicado ao **MC Ke
 
 ---
 
-## 🕰️ Linha do Tempo – Momentos Marcantes
+ 🕰️ Linha do Tempo – Momentos Marcantes
 
-| # | Evento | Descrição |
+|  | Evento | Descrição |
 |---|--------|-----------|
 | 01 | **Raízes na Vila Maria** | Entre vielas e quadras da Zona Norte de SP, Kevin escreveu crônicas reais sobre sua realidade. |
 | 02 | **Reconhecimento Nacional** | Flow autêntico conquistou o Brasil; hits ultrapassaram fronteiras. |
@@ -60,7 +61,7 @@ Este repositório contém o código-fonte de um site tributo dedicado ao **MC Ke
 
 ---
 
-## 🌐 Redes e Plataformas
+ 🌐 Redes e Plataformas
 
 Acompanhe o legado de MC Kevin através dos canais oficiais e do projeto:
 
@@ -74,7 +75,7 @@ Acompanhe o legado de MC Kevin através dos canais oficiais e do projeto:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+🛠️ Tecnologias Utilizadas
 
 <p align="left">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
@@ -85,15 +86,15 @@ Acompanhe o legado de MC Kevin através dos canais oficiais e do projeto:
 
 ---
 
-## 📝 Licença e Créditos
+ Licença e Créditos
 
-> **© 2026 Allan Sant'Anna**  
+> 2026 Allan Sant'Anna
 > Todos os direitos das imagens e mídias pertencem aos seus respectivos proprietários.  
 > Este é um projeto de homenagem, sem fins comerciais.
 
 ---
 
-## 💬 Como Contribuir
+ 💬 Como Contribuir
 
 Sugestões, correções ou melhorias são bem-vindas! Abra uma *issue* ou envie um *pull request*.
 
