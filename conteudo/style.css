@@ -943,7 +943,8 @@ a {
 .spotlight-frame {
   position: relative;
   height: 422px;
-  width: 492px;
+  width: 100%;
+  min-width: 0;
   background-color: var(--bg-card);
   border: 1px solid var(--border-medium);
   padding: 0.75rem;
@@ -1079,6 +1080,10 @@ a {
   gap: 4rem;
   align-items: start;
   margin-top: 3.5rem;
+}
+
+.discography-layout > * {
+  min-width: 0;
 }
 
 .player-card {
@@ -1331,7 +1336,7 @@ a {
 
 .hit-item {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 2rem;
   background-color: var(--bg-card);
@@ -1412,7 +1417,7 @@ a {
 
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.75rem;
 }
 
@@ -1539,7 +1544,7 @@ a {
   width: var(--content-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.2fr auto 1.2fr;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 0rem;
 }
@@ -1551,9 +1556,6 @@ a {
 }
 
 .footer-avatar {
-  position: relative;
-  bottom: 90px;
-  left: 70px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -1568,8 +1570,6 @@ a {
 }
 
 .footer-name {
-  position: relative;
-  left: -66px;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.15rem;
@@ -1590,13 +1590,12 @@ a {
 /* Center footer links */
 .footer-nav {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
 }
 
 .footer-nav a {
-  position: relative;
-  left: 239px;
-  bottom: 25px;
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 600;
@@ -1612,6 +1611,7 @@ a {
 /* Social links styling */
 .footer-socials {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: flex-end;
 }
@@ -1630,9 +1630,6 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
-  position: relative;
-  top: 48px;
-  right: 429px;
 }
 
 .social-btn span {
@@ -1675,8 +1672,6 @@ a {
 }
 
 .footer-subcopy {
-  position: relative;
-  right: 245px;
   font-family: var(--font-sans);
   font-size: 0.7rem;
   color: var(--text-disabled);

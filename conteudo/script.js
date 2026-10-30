@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   let lastScrollY = window.scrollY;
-  const MOBILE_BREAKPOINT = 768;
+  const MOBILE_BREAKPOINT = 1100;
 
 
 

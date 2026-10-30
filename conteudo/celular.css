@@ -133,6 +133,36 @@
   }
 }
 
+/* Collapse the long navigation before it runs out of horizontal space. */
+@media (max-width: 1100px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(85vw, 320px);
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    background-color: var(--bg-dark);
+    border-left: 1px solid var(--border-medium);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6rem 2rem 3rem;
+    gap: 1.25rem;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 505;
+  }
+
+  .navbar.open .nav-links {
+    right: 0;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+  }
+}
+
 /* Mobile Devices (Hamburger navigation triggered here) */
 @media (max-width: 768px) {
   :root {
@@ -185,6 +215,10 @@
   /* Hero section adjustments */
   .hero-content {
     padding-top: 2rem;
+  }
+
+  .hero {
+    min-height: 100svh;
   }
   
   .hero-meta-badge {
@@ -259,6 +293,28 @@
 
 /* Very Small Mobile screen adjustments */
 @media (max-width: 576px) {
+  .section,
+  .hits {
+    padding: 4rem 0;
+  }
+
+  .discography-layout {
+    gap: 1.5rem;
+  }
+
+  .player-card {
+    padding: 1.5rem;
+  }
+
+  .hit-item {
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .hit-item:hover {
+    transform: none;
+  }
+
   .moments-grid {
     grid-template-columns: 1fr;
   }
@@ -398,6 +454,19 @@
   .footer-subcopy {
     position: relative;
     right: 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    padding: 7rem 0 4rem;
+  }
+
+  .hero-content {
+    top: 0;
+    padding-top: 0;
   }
 }
 
