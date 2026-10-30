@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# The site's main page lives in /conteudo, so the root URL is sent there
+[[redirects]]
+  from = "/"
+  to = "/conteudo/"
+  status = 301
