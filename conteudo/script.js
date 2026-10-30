@@ -9,11 +9,139 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.getElementById("navLinks");
   const revealItems = document.querySelectorAll(".reveal");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const scrollProgress = document.getElementById("scrollProgress");
+  const scrollProgressBar = document.getElementById("scrollProgressBar");
+  const feedbackDialog = document.getElementById("feedbackDialog");
+  const feedbackForm = document.getElementById("feedbackForm");
+  const feedbackOpen = document.getElementById("feedbackOpen");
+  const feedbackWidget = document.getElementById("feedbackWidget");
+  const feedbackDismiss = document.getElementById("feedbackDismiss");
+  const feedbackNotice = document.getElementById("feedbackNotice");
+  const feedbackNoticeMessage = document.getElementById("feedbackNoticeMessage");
+  const feedbackNoticeClose = document.getElementById("feedbackNoticeClose");
 
   let lastScrollY = window.scrollY;
   const MOBILE_BREAKPOINT = 1100;
 
+  let progressUpdatePending = false;
+  let feedbackNoticeTimer = null;
 
+  function hideFeedbackNotice() {
+    if (!feedbackNotice) return;
+
+    feedbackNotice.hidden = true;
+    if (feedbackNoticeTimer) {
+      window.clearTimeout(feedbackNoticeTimer);
+      feedbackNoticeTimer = null;
+    }
+  }
+
+  function showFeedbackNotice(message) {
+    if (!feedbackNotice || !feedbackNoticeMessage) return;
+
+    feedbackNoticeMessage.textContent = message;
+    feedbackNotice.hidden = false;
+    if (feedbackNoticeTimer) {
+      window.clearTimeout(feedbackNoticeTimer);
+    }
+    feedbackNoticeTimer = window.setTimeout(hideFeedbackNotice, 9000);
+  }
+
+  if (feedbackDialog && feedbackForm && feedbackOpen) {
+    const feedbackClose = document.getElementById("feedbackClose");
+    const feedbackCancel = document.getElementById("feedbackCancel");
+
+    function closeFeedbackDialog() {
+      feedbackDialog.close();
+      feedbackOpen.setAttribute("aria-expanded", "false");
+      feedbackOpen.focus();
+    }
+
+    feedbackOpen.addEventListener("click", () => {
+      feedbackDialog.showModal();
+      feedbackOpen.setAttribute("aria-expanded", "true");
+      document.getElementById("feedbackTopic").focus();
+    });
+
+    feedbackClose?.addEventListener("click", closeFeedbackDialog);
+    feedbackCancel?.addEventListener("click", closeFeedbackDialog);
+
+    feedbackDialog.addEventListener("click", (event) => {
+      if (event.target === feedbackDialog) {
+        closeFeedbackDialog();
+      }
+    });
+
+    feedbackDialog.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      closeFeedbackDialog();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && feedbackDialog.open) {
+        event.preventDefault();
+        closeFeedbackDialog();
+      }
+    });
+
+    feedbackForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(feedbackForm);
+      const topic = String(formData.get("topic") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+      if (!topic || !message) return;
+
+      const subject = encodeURIComponent(`[Feedback do site] ${topic}`);
+      const body = encodeURIComponent(`${message}\n\n-- Feedback enviado pelo site MC Kevin`);
+      const emailLink = document.createElement("a");
+      emailLink.href = `mailto:contato@mckevingomes.com?subject=${subject}&body=${body}`;
+      emailLink.hidden = true;
+      document.body.append(emailLink);
+      emailLink.click();
+      emailLink.remove();
+
+      feedbackForm.reset();
+      closeFeedbackDialog();
+      showFeedbackNotice("Se o aplicativo de e-mail não abriu, verifique a configuração do navegador. O feedback só será enviado após sua confirmação.");
+    });
+  }
+
+  feedbackNoticeClose?.addEventListener("click", hideFeedbackNotice);
+  feedbackDismiss?.addEventListener("click", () => {
+    if (feedbackWidget) {
+      feedbackWidget.hidden = true;
+    }
+  });
+
+  function updateScrollProgress() {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollableHeight > 0
+      ? Math.min(100, Math.round((window.scrollY / scrollableHeight) * 100))
+      : 0;
+
+    if (scrollProgressBar) {
+      scrollProgressBar.style.transform = `scaleX(${progress / 100})`;
+    }
+
+    if (scrollProgress) {
+      scrollProgress.setAttribute("aria-valuenow", String(progress));
+    }
+  }
+
+  function scheduleScrollProgressUpdate() {
+    if (progressUpdatePending) return;
+
+    progressUpdatePending = true;
+    window.requestAnimationFrame(() => {
+      updateScrollProgress();
+      progressUpdatePending = false;
+    });
+  }
+
+  window.addEventListener("scroll", scheduleScrollProgressUpdate, { passive: true });
+  window.addEventListener("resize", scheduleScrollProgressUpdate);
+  updateScrollProgress();
 
   function handleNavbarState() {
     if (!navbar) return;

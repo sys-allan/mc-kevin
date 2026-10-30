@@ -7,6 +7,7 @@
   <meta name="description" content="Homenagem cinematográfica e biográfica ao legado de MC Kevin, com atmosfera noturna, intensidade urbana e memória viva da quebrada de São Paulo.">
   <meta name="keywords" content="MC Kevin, Kevin Nascimento Bueno, funk paulista, trap brasileiro, homenagem MC Kevin, legado MC Kevin">
   <meta name="author" content="Allan Santana">
+  <script src="analytics.js" defer></script>
   <link rel="icon" href="../img/copao.jpg" type="image/x-icon">
  
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +21,9 @@
 
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Progresso da leitura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <span class="scroll-progress-bar" id="scrollProgressBar"></span>
+  </div>
 
   <!-- Header / Navigation Bar -->
   <nav class="navbar" id="navbar">
@@ -466,36 +470,41 @@
       </div>
     </section>
 
-    <!-- Section 8: Conquistas & Seguidores -->
+    <!-- Section 8: Marcas da Trajetória -->
     <section class="section achievements" id="conquistas" aria-labelledby="conquistas-title">
       <div class="section-heading reveal">
-  
-        <h2 id="conquistas-title" class="section-title">sua Marca</h2>
+        <span class="section-kicker">Mais do que números</span>
+        <h2 id="conquistas-title" class="section-title">O que ficou na história</h2>
+        <p class="achievements-intro">Uma trajetória feita de origem, personalidade e música que segue viva.</p>
       </div>
 
       <div class="achievements-grid reveal">
-        <article class="achievement-card reveal red-card">
-          <span class="achievement-value">2,3M</span>
-          <span class="achievement-key">Seguidores</span>
-          <p class="achievement-desc">Fãs conectados ao legado de Kevin nas redes sociais e playlists.</p>
+        <article class="achievement-card reveal">
+          <span class="achievement-index" aria-hidden="true">01</span>
+          <span class="achievement-key">Origem</span>
+          <h3 class="achievement-title">Vila Maria, sempre presente</h3>
+          <p class="achievement-desc">A Zona Norte não era só cenário: fazia parte da identidade e da história do Kevin.</p>
         </article>
 
-        <article class="achievement-card reveal blue-card">
-          <span class="achievement-value">1,5B</span>
-          <span class="achievement-key">Streams</span>
-          <p class="achievement-desc">Reproduções massivas que transformaram cada hit em fenômeno viral.</p>
+        <article class="achievement-card reveal">
+          <span class="achievement-index" aria-hidden="true">02</span>
+          <span class="achievement-key">Personalidade</span>
+          <h3 class="achievement-title">Carisma sem roteiro</h3>
+          <p class="achievement-desc">A espontaneidade e a energia de Kevin criavam uma conexão própria com o público.</p>
         </article>
 
-        <article class="achievement-card reveal green-card">
-          <span class="achievement-value">450M</span>
-          <span class="achievement-key">Views</span>
-          <p class="achievement-desc">Visualizações acumuladas nos videoclipes e conteúdos oficiais.</p>
+        <article class="achievement-card reveal">
+          <span class="achievement-index" aria-hidden="true">03</span>
+          <span class="achievement-key">Música</span>
+          <h3 class="achievement-title">Refrões que viraram memória</h3>
+          <p class="achievement-desc">“Cavalo de Troia” e “O Menino Encantou a Quebrada” são parte de uma história cantada por muita gente.</p>
         </article>
 
-        <article class="achievement-card reveal gold-card">
-          <span class="achievement-value">120+</span>
-          <span class="achievement-key">Shows</span>
-          <p class="achievement-desc">Apresentações e participações em eventos que levaram a quebrada ao topo.</p>
+        <article class="achievement-card reveal">
+          <span class="achievement-index" aria-hidden="true">04</span>
+          <span class="achievement-key">Legado</span>
+          <h3 class="achievement-title">Uma voz que continua</h3>
+          <p class="achievement-desc">Sua música permanece presente na memória dos fãs e na história do funk paulista.</p>
         </article>
       </div>
     </section>
@@ -563,8 +572,56 @@
         <p class="footer-copy">&copy; 2026 Allan sant'anna.</p>
         <p class="footer-subcopy">Todos os direitos das imagens e mídias pertencem aos seus respectivos proprietários.</p>
       </div>
+      <p class="analytics-disclosure" id="analyticsDisclosure" hidden>Este site usa estatísticas agregadas do Umami para entender visitas e categorias de dispositivo. Não exibimos nomes nem identificamos pessoas.</p>
     </div>
   </footer>
+
+  <div class="feedback-widget" id="feedbackWidget">
+    <button class="feedback-launcher" id="feedbackOpen" type="button" aria-haspopup="dialog" aria-label="Abrir formulário de feedback" aria-expanded="false">
+      <span class="feedback-launcher-avatar" aria-hidden="true">
+        <img src="../img/atende.jpg" alt="">
+      </span>
+      <span class="feedback-launcher-label">
+        <span>Tem uma sugestão?</span>
+        <strong>Deixe seu feedback</strong>
+      </span>
+      <span class="feedback-launcher-indicator" aria-hidden="true"></span>
+    </button>
+    <button class="feedback-dismiss" id="feedbackDismiss" type="button" aria-label="Ocultar lembrete de feedback">&times;</button>
+  </div>
+
+  <dialog class="feedback-dialog" id="feedbackDialog" aria-labelledby="feedbackTitle">
+    <form class="feedback-form" id="feedbackForm">
+      <div class="feedback-dialog-heading">
+        <div>
+          <span class="section-kicker">Sua opinião importa</span>
+          <span class="section-kicker">você Não vai gastar o seu tempo!</span>
+          <h2 class="feedback-title" id="feedbackTitle">Deixe seu feedback</h2>
+        </div>
+        <button class="feedback-close" id="feedbackClose" type="button" aria-label="Fechar formulário">&times;</button>
+      </div>
+      <label class="feedback-label" for="feedbackTopic">Assunto</label>
+      <select class="feedback-field" id="feedbackTopic" name="topic">
+        <option value="Experiência no site">Experiência no site</option>
+        <option value="Conteúdo">Conteúdo</option>
+        <option value="Acessibilidade">Acessibilidade</option>
+        <option value="Outro">Outro</option>
+      </select>
+      <label class="feedback-label" for="feedbackMessage">Mensagem</label>
+      <textarea class="feedback-field feedback-message" id="feedbackMessage" name="message" maxlength="2000" required placeholder="Conte o que achou ou como podemos melhorar." aria-describedby="feedbackPrivacy"></textarea>
+      <p class="feedback-privacy" id="feedbackPrivacy">Seu aplicativo de e-mail será aberto com a mensagem pronta.</p>
+      <div class="feedback-actions">
+        <button class="feedback-button feedback-button-secondary" id="feedbackCancel" type="button">Cancelar</button>
+        <button class="feedback-button feedback-button-primary" type="submit">Continuar no e-mail</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="feedback-notice" id="feedbackNotice" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <img src="../img/atende.jpg" alt="" aria-hidden="true">
+    <p id="feedbackNoticeMessage"></p>
+    <button class="feedback-notice-close" id="feedbackNoticeClose" type="button" aria-label="Fechar notificação">&times;</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
