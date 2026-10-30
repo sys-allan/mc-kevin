@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const subject = encodeURIComponent(`[Feedback do site] ${topic}`);
       const body = encodeURIComponent(`${message}\n\n-- Feedback enviado pelo site MC Kevin`);
       const emailLink = document.createElement("a");
-      emailLink.href = `mailto:contato@mckevingomes.com?subject=${subject}&body=${body}`;
+      emailLink.href = `mailto:narutoilhabela36@gmail.com?subject=${subject}&body=${body}`;
       emailLink.hidden = true;
       document.body.append(emailLink);
       emailLink.click();

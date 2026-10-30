@@ -1839,7 +1839,7 @@ a {
 
 .feedback-dismiss {
   position: absolute;
-  top: -0.35rem;
+  top: -2.35rem;
   right: -0.35rem;
   display: grid;
   place-items: center;
@@ -1854,6 +1854,22 @@ a {
   cursor: pointer;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
+
+.aviso {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+  font-size: 16px;
+  margin-top: 23px;
+}
+
+.alerta-png {
+  width: 39px;
+  position: relative;
+  bottom: 3px;
+}
+
 
 .feedback-dismiss:hover {
   color: var(--text-primary);
