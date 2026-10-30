@@ -1,9 +1,6 @@
 @charset "UTF-8";
 
-
-
 :root {
-  
   --bg-darker: #050505;    
   --bg-dark: #0a0a0c;       
   --bg-card: #121215;       
@@ -819,13 +816,14 @@ a {
 .timeline-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-soft);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: var(--radius-sm);
   display: inline-block;
   text-align: left;
   max-width: 100%;
   box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in;
+
 }
 
 .timeline-card-header h3 {
@@ -842,18 +840,19 @@ a {
   font-size: 0.88rem;
   color: var(--text-muted);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 /* Special styling for final card */
 .highlight-card {
   border: 1px solid var(--border-red);
   background: linear-gradient(135deg, var(--bg-card), rgba(158, 12, 27, 0.05));
+
 }
 
 .timeline-item:hover .timeline-card {
   border-color: var(--border-red);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -896,10 +895,11 @@ a {
   border-radius: var(--radius-sm);
   text-align: center;
   box-shadow: var(--shadow-sm);
-  transition: border-color 0.3s ease;
+  transition: 0.5s ease-out;
 }
 
 .stat-card:hover {
+  transform: translateY(-7px);
   border-color: var(--border-red);
 }
 
@@ -942,7 +942,8 @@ a {
 
 .spotlight-frame {
   position: relative;
-  height: 520px;
+  height: 422px;
+  width: 492px;
   background-color: var(--bg-card);
   border: 1px solid var(--border-medium);
   padding: 0.75rem;

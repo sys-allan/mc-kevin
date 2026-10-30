@@ -1,12 +1,9 @@
-/**
- * MC Kevin Memorial Page — JS Interactions
- * Pure Vanilla JavaScript, organized and accessible.
- */
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ==========================================================================
+
   // 1. SELECTORS & STATE MANAGEMENT
-  // ==========================================================================
+ 
   const navbar = document.getElementById("navbar");
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
@@ -16,9 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastScrollY = window.scrollY;
   const MOBILE_BREAKPOINT = 768;
 
-  // ==========================================================================
-  // 2. NAVBAR SCROLL & STATE BEHAVIORS
-  // ==========================================================================
+
+
   function handleNavbarState() {
     if (!navbar) return;
 
@@ -40,9 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleNavbarState, { passive: true });
   handleNavbarState(); // Initial check
 
-  // ==========================================================================
   // 3. MOBILE MENU (HAMBURGER TOGGLE)
-  // ==========================================================================
+
   if (menuToggle && navLinks && navbar) {
     function setMenuState(isOpen) {
       navbar.classList.toggle("open", isOpen);
@@ -94,9 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================================================
+
   // 4. ACCESSIBLE SMOOTH SCROLL FOR IN-PAGE LINKS
-  // ==========================================================================
+
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       const targetId = link.getAttribute("href");
@@ -124,9 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ==========================================================================
+
   // 5. INTERSECTION OBSERVER FOR REVEAL ANIMATIONS
-  // ==========================================================================
+
   if (revealItems.length > 0) {
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -148,9 +143,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================================================
   // 6. INTERACTIVE ALBUM OF MEMORIES (SPOTLIGHT FADE EFFECT)
-  // ==========================================================================
+
   const spotlightImage = document.getElementById("spotlightImage");
   const spotlightTag = document.getElementById("spotlightTag");
   const spotlightCaption = document.getElementById("spotlightCaption");
@@ -251,14 +245,14 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoplay();
   }
 
-  // ==========================================================================
+
   // 7. CUSTOM INTERACTIVE AUDIO PLAYER
-  // ==========================================================================
+
   const tracks = [
-    { title: "Cavalo de Troia", year: "2020", img: "img/cavalo.jpg", duration: "3:18", sec: 198, src: "sons/mc-kevin-cavalo-de-troia.mp3" },
-    { title: "Pra Inveja e Tchau", year: "2020", img: "img/inveja.jpg", duration: "2:45", sec: 165, src: "sons/mc-kevin-e-mc-davi-pra-inveja-e-tchau.mp3" },
-    { title: "Veracruz", year: "2019", img: "img/vera.jpg", duration: "3:04", sec: 184, src: "sons/MC Kevin - Veracruz (KondZilla)(MP3_160K).mp3" },
-    { title: "O Menino Encantou a Quebrada", year: "2021", img: "img/quebrada.jpg", duration: "3:22", sec: 202, src: "sons/mc-kevin-o-menino-encantou-a-quebrada.mp3" }
+    { title: "Cavalo de Troia", year: "2020", img: "../img/cavalo.jpg", duration: "3:18", sec: 198, src: "../sons/mc-kevin-cavalo-de-troia.mp3" },
+    { title: "Pra Inveja e Tchau", year: "2020", img: "../img/inveja.jpg", duration: "2:45", sec: 165, src: "../sons/mc-kevin-e-mc-davi-pra-inveja-e-tchau.mp3" },
+    { title: "Veracruz", year: "2019", img: "../img/vera.jpg", duration: "3:04", sec: 184, src: "../sons/MC Kevin - Veracruz (KondZilla)(MP3_160K).mp3" },
+    { title: "O Menino Encantou a Quebrada", year: "2021", img: "../img/quebrada.jpg", duration: "3:22", sec: 202, src: "../sons/mc-kevin-o-menino-encantou-a-quebrada.mp3" }
   ];
 
   let currentTrackIndex = 0;
@@ -568,3 +562,5 @@ document.addEventListener("DOMContentLoaded", () => {
     loadTrack(1);
   }
 });
+
+// fim do script
