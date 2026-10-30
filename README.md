@@ -85,20 +85,6 @@ Acompanhe o legado de MC Kevin através dos canais oficiais e do projeto:
 </p>
 
 ---
-
-### Estatísticas de acesso (Netlify + Umami)
-
-O site pode mostrar estatísticas agregadas de visitas e categorias de dispositivo pelo Umami. Ele não identifica nomes nem informa quem é cada visitante.
-
-1. Crie uma conta no Umami Cloud e cadastre o domínio publicado no Netlify.
-2. Copie o **Website ID** do site no painel do Umami.
-3. Abra `conteudo/analytics.js` e cole o ID entre as aspas em `UMAMI_WEBSITE_ID`.
-4. Publique novamente no Netlify. Depois, consulte os acessos e os tipos gerais de dispositivo no painel do Umami.
-
-Enquanto o ID estiver vazio, o script de analytics não é carregado e nenhuma estatística é enviada.
-
----
-
  Licença e Créditos
 
 > 2026 Allan Sant'Anna
